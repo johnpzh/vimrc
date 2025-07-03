@@ -138,3 +138,15 @@ let g:AutoPairsShortcutJump = '<C-k>'
 nmap <F2> :update<CR>
 vmap <F2> <Esc><F2>gv
 imap <F2> <Esc><F2>
+
+" Vim-Plug: https://github.com/junegunn/vim-plug
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+call plug#end()
+
+" vim-oscyank: https://github.com/ojroques/vim-oscyank
+" Ref: https://gronskiy.com/posts/2023-03-26-copy-via-vim-tmux-ssh/
+nmap <leader>c <Plug>OSCYankOperator
+nmap <leader>cc <leader>c_
+vmap <leader>c <Plug>OSCYankVisual
