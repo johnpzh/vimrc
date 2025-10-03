@@ -64,7 +64,7 @@ set tabstop=4
 "统一缩进
 set shiftwidth=4
 "用空格代替tab
-"set expandtab
+set expandtab
 " Be smart when using tabs ;)
 set smarttab
 "智能缩进
