@@ -147,6 +147,18 @@ call plug#end()
 
 " vim-oscyank: https://github.com/ojroques/vim-oscyank
 " Ref: https://gronskiy.com/posts/2023-03-26-copy-via-vim-tmux-ssh/
+if exists('$STY')
+  " GNU screen
+  let g:oscyank_osc52 = "\x1bP\x1b]52;c;%s\x07\x1b\\"
+elseif exists('$TMUX')
+  " tmux passthrough
+  let g:oscyank_osc52 = "\x1bPtmux;\x1b\x1b]52;c;%s\x07\x1b\\"
+else
+  " plain terminal / ssh
+  let g:oscyank_osc52 = "\x1b]52;c;%s\x07"
+endif
+let g:oscyank_max_length = 0
+
 nmap <leader>c <Plug>OSCYankOperator
 nmap <leader>cc <leader>c_
 vmap <leader>c <Plug>OSCYankVisual
